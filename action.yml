@@ -1,0 +1,25 @@
+name: validate-jira-key
+description: Validate that a given string represents an existing JIRA issue key
+inputs:
+  key:
+    description: The issue key to check
+    required: true
+  jiraUrl:
+    description: Base URL to JIRA
+    required: true
+  jiraEmail:
+    description: Email address of JIRA user
+    required: true
+  jiraApiToken:
+    description: JIRA API token
+    required: true
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    JIRA_URL: ${{ inputs.jiraUrl }}
+    JIRA_EMAIL: ${{ inputs.jiraEmail }}
+    JIRA_API_TOKEN: ${{ inputs.jiraApiToken }}
+  args:
+    - "--key"
+    - ${{ inputs.key }}

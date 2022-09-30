@@ -15,7 +15,7 @@ inputs:
     required: true
 runs:
   using: docker
-  image: Dockerfile
+  image: docker://ghcr.io/solvocloud/action-validate-jira-key:1.1
   env:
     JIRA_URL: ${{ inputs.jiraUrl }}
     JIRA_EMAIL: ${{ inputs.jiraEmail }}

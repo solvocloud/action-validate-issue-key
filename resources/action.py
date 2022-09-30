@@ -23,7 +23,7 @@ def main():
         raise Exception("Missing JIRA account's email address")
     jira_api_token = os.getenv("JIRA_API_TOKEN")
     if not jira_api_token:
-        raise Exception("Missing JIRA TOKEN key")
+        raise Exception("Missing JIRA API token")
 
     logger.info(f"Searching for issue '{key}' in JIRA server located at {jira_url}")
 
